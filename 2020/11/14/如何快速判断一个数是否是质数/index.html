@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>我的第一篇博客文章 - Hexo</title>
+  <title>Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -141,8 +141,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-23 17:18" pubdate>
-        October 23, 2020 pm
+      <time datetime="2020-11-14 20:49" pubdate>
+        November 14, 2020 pm
       </time>
     </span>
   
@@ -153,7 +153,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15 字
+      194 字
     </span>
   
 
@@ -163,7 +163,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -193,15 +193,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">我的第一篇博客文章</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body" id="post-body">
-              <p>##第一章</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>##第二章</p>
-<p>内容</p>
-<hr>
-<p>##参考文献</p>
-<p>blblblblll</p>
+              <p>素数筛法，是一种快速“筛”出2<del>n之间所有素数的方法。朴素的筛法叫埃氏筛（the Sieve ofEratosthenes，埃拉托色尼筛），它的过程是这样的：（比如从2</del>16）</p>
+<p>从前往后看，找到第一个未被划掉的数，2，这说明它是质数。然后把2的倍数（不包括2）划掉：</p>
+<p>下一个未被划掉的数是3，它是质数，把3的倍数划掉：</p>
+<p>接下来应该是5，但是5已经超过<br>根号16了，所以遍历结束，剩下未被划掉的都是素数：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">bool</span> isnp[MAXN]; <span class="hljs-comment">// is not prime: 不是素数</span>
+<span class="hljs-built_in">void</span> init(<span class="hljs-built_in">int</span> n)
+&#123;
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">2</span>; i * i &lt;= n; i++)
+        <span class="hljs-keyword">if</span> (!isnp[i])
+            <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> j = i * i; j &lt;= n; j += i)
+                isnp[j] = <span class="hljs-number">1</span>;
+&#125;
+</code></pre></div>
+<p>时间复杂度是 O(N * loglogN)</p>
 
             </div>
             <hr>
@@ -218,7 +226,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/14/%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E8%B6%85%E6%97%B6/">
+                      <a href="/2020/11/14/%E5%A0%86/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Previous</span>
@@ -228,8 +236,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/23/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/11/14/STL%E6%80%BB%E7%BB%93/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -397,7 +405,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "我的第一篇博客文章&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

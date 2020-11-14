@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>我的第一篇博客文章 - Hexo</title>
+  <title>Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -141,8 +141,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-23 17:18" pubdate>
-        October 23, 2020 pm
+      <time datetime="2020-11-14 20:49" pubdate>
+        November 14, 2020 pm
       </time>
     </span>
   
@@ -153,7 +153,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15 字
+      263 字
     </span>
   
 
@@ -163,7 +163,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -193,15 +193,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">我的第一篇博客文章</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body" id="post-body">
-              <p>##第一章</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>##第二章</p>
-<p>内容</p>
-<hr>
-<p>##参考文献</p>
-<p>blblblblll</p>
+              <p>1、优先队列又名二叉堆，是特殊的二叉树。二叉树有两种：最大堆和最小堆。</p>
+<p>最大堆（大根堆）：父结点的键值总是大于或等于任何一个子节点的键值。</p>
+<p>最小堆（小根堆）：父结点的键值总是小于或等于任何一个子结点的键值。</p>
+<p>2、对顶堆</p>
+<p>问题：N个数按顺序加入数组，每次加入的时候就输出其中位数。</p>
+<p>思路：把数组平均拆成两个堆（一个小根堆一个大根堆），大根堆存小的n/2个数，小根堆存大的n/2个数。这样两堆的堆顶如果是同一个数那就是答案；如果不是同一数那就取两者平均就是答案。</p>
+<p>现在有个问题就是如何保证两堆几乎平均分。当有个新数要加进来，先用堆顶判断应该去哪堆，然后如果有个堆数量过多，那就把对顶移进另一堆直至两堆平衡。</p>
 
             </div>
             <hr>
@@ -218,7 +219,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/14/%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E8%B6%85%E6%97%B6/">
+                      <a href="/2020/11/14/%E5%BF%AB%E8%AF%BB/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Previous</span>
@@ -228,8 +229,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/23/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/11/14/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF%E8%B4%A8%E6%95%B0/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -397,7 +398,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "我的第一篇博客文章&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

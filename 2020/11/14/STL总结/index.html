@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>AlenkWin's Field</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://pic.downk.cc/item/5fafcdc913b6a3f6d1fd5f16.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-14 20:49" pubdate>
+        November 14, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      41
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h3 id="一、栈（stack）"><a href="#一、栈（stack）" class="headerlink" title="一、栈（stack）"></a>一、栈（stack）</h3><p>stack实现了一种先进后出的数据结构，使用时需要包含stack头文件<br>C++定义stack语法：</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">int</span>&gt; s;<span class="hljs-comment">//int为栈的数据类型，可以为string,double等</span></code></pre></div>
+
+
+<p>C++中stack的基本操作有：</p>
+<p>1、出栈：如<br>s.pop() 注意并不返回出栈的元素 </p>
+<p>2、进栈：如 s.push(x) </p>
+<p>3、访问栈顶元素：如s.top(); </p>
+<p>4、判断栈空：如 s.empty() 栈为空时返回true </p>
+<p>5、返回栈中元素个数，如：s.size()</p>
+<h3 id="二、动态数组（vector）"><a href="#二、动态数组（vector）" class="headerlink" title="二、动态数组（vector）"></a>二、动态数组（vector）</h3><p>C++中的vector是一个可以改变大小的数组，当解题时无法知道自己需要的数组规模有多大时可以用vector来达到最大节约空间的目的。使用时需要包含vector头文件。<br>定义一个一维动态数组的语法为</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; a;  <span class="hljs-comment">//int为该动态数组的元素数据类型，可以为string、double等</span></code></pre></div>
+
+
+<p>定义一个二维动态数组的语法为</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>*&gt; a; <span class="hljs-comment">//三维数据类型为int**，以此类推。</span></code></pre></div>
+
+
+<p>C++中vector的基本操作有：</p>
+<p>1、push_back(x) 在数组的最后添加元素x。 </p>
+<p>2、pop_back() 删除最后一个元素，无返回值。 </p>
+<p>3、at(i) 返回位置i的元素。 </p>
+<p>4、begin() 返回一个迭代器，指向第一个元素。 </p>
+<p>5、end() 返回一个迭代器，指向最后一个元素的下一个位置。 </p>
+<p>6、front() 返回数组头的引用。 </p>
+<p>7、capacity(x) 为vector分配空间 </p>
+<p>8、size() 返回数组大小 </p>
+<p>9、resize(x) 改变数组大小，如果x比之前分配的空间大，则自动填充默认值。 </p>
+<p>10、insert 插入元素 </p>
+<p>①a.insert(a.begin(),10); 将10插入到a的起始位置前。 </p>
+<p>②a.insert(a.begin(),3,10) 将10插入到数组位置的0-2处。 </p>
+<p>11、erase 删除元素 </p>
+<p>①a.erase(a.begin()); 将起始位置的元素删除。 </p>
+<p>②a.erase(a.begin(),begin()+2); 将0~2之间的元素删除。 </p>
+<p>12、rbegin() 返回一个逆序迭代器，它指向最后一个元素。 </p>
+<p>13、rend() 返回一个逆序迭代器，它指向的第一个元素前面的位置。 </p>
+<p>14、clear()清空所有元素。<br>这里举一个简单的例子：</p>
+<div class="hljs"><pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main()
+&#123;
+    vector&lt;int&gt; a;
+    vector&lt;int&gt; b;
+
+    for (int i = 0; i &lt; 10; i++)    //向数组a依次添加0~9
+        a.push_back(i);
+
+    a.swap(b);      //将数组a元素与数组b元素交换
+    cout &lt;&lt; a.size() &lt;&lt; &quot; &quot; &lt;&lt; b.size() &lt;&lt; endl;    //此时应当输出 0 10
+
+    for (vector&lt;int&gt;::iterator it = b.begin(); it != b.end(); it++)//从第一个元素开始遍历数组元素
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;     //依次输出0~9
+    cout &lt;&lt; endl;
+
+    b.erase(b.begin() + 1);     //删除位置1的元素，即元素1.
+    cout &lt;&lt; b.size() &lt;&lt; endl;   //由于删除了一个元素，此时输出应当为8
+
+    for (vector&lt;int&gt;::reverse_iterator rit = b.rbegin(); rit != b.rend(); ++rit)//逆向输出数组元素
+        cout &lt;&lt; *rit &lt;&lt; &quot; &quot;;    //应当输出9 8 7 6 5 4 3 2 0
+    cout &lt;&lt; endl;
+
+    b.resize(9);    //将数组空间设定为9，相当于比之前多了1个位置
+    b.push_back(20);//在尾部添加元素20
+
+    for (vector&lt;int&gt;::iterator it = b.begin(); it != b.end(); it++)
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;  //应当输出0 2 3 4 5 6 7 8 9 20
+
+    return 0;
+&#125;</code></pre></div>
+<h3 id="三、集合-set"><a href="#三、集合-set" class="headerlink" title="三、集合(set)"></a>三、集合(set)</h3><p>C++中集合(set)类似于数学上的集合，即每个元素只能出现一次。set的特性是，所有元素都会根据元素的键值自动排序，set的元素不像map那样可以同时拥有实值(value)和键值(key),set元素的键值就是实值，实值就是键值。set不允许两个元素有相同的键值。使用该容器需要包含set头文件。<br>定义一个set的语法为：</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; s; <span class="hljs-comment">//int为集合的数据类型，可以为string,double等</span></code></pre></div>
+
+
+<p>C++中set的基本操作有：</p>
+<p>1、begin() 返回一个迭代器，指向第一个元素。 </p>
+<p>2、end() 返回一个迭代器，指向最后一个元素的下一个位置。 </p>
+<p>3、clear()清空set的所有元素。 </p>
+<p>4、empty() 判断是否为空。 </p>
+<p>5、size() 返回当前元素个数 </p>
+<p>6、erase(it) 删除迭代器指针it指向的元素。 </p>
+<p>7、insert(a) 插入元素a </p>
+<p>8、count() 查找某个元素出现的次数，只有可能为0或1。 </p>
+<p>9、find() 查找某个元素出现的位置，如果找到则返回这个元素的迭代器，如果不存在，则返回s.end()<br>这里举一个简单的例子：</p>
+<div class="hljs"><pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;set&gt;
+using namespace std;
+
+int main()
+&#123;
+    set&lt;int&gt; s;
+    s.insert(20);
+    s.insert(10);
+    s.insert(30);
+    s.insert(10);
+
+    cout &lt;&lt; s.size() &lt;&lt; endl; //将输出3，因为集合中元素不能重复
+    for (set&lt;int&gt;::iterator it = s.begin(); it != s.end(); it++)
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;     //将输出10 20 30，集合会自动排序
+    cout &lt;&lt; endl;
+
+    //将输出1 0
+    cout &lt;&lt; count(s.begin(), s.end(), 20) &lt;&lt; &quot; &quot; &lt;&lt; count(s.begin(), s.end(), 40) &lt;&lt; endl;
+
+    s.erase(s.find(10));    //删除元素10
+    for (set&lt;int&gt;::iterator it = s.begin(); it != s.end(); it++)
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;; //将输出20 30
+    return 0;
+&#125;</code></pre></div>
+<h3 id="四、队列-queue"><a href="#四、队列-queue" class="headerlink" title="四、队列(queue)"></a>四、队列(queue)</h3><p>queue实现了一种先进先出的数据结构，使用时需要包含queue头文件。<br>定义一个queue的语法为：</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">queue</span>&lt;<span class="hljs-keyword">int</span>&gt; q;   <span class="hljs-comment">//int为队列的数据类型，可以为string,double等</span></code></pre></div>
+
+
+<p>C++中queue的基本操作有：</p>
+<p>1、入队，如：q.push(x) 将元素x置于队列的末端 </p>
+<p>2、出队，如: q.pop() 同样不会返回弹出元素的值 </p>
+<p>3、返回队首元素，如：q.front(); </p>
+<p>4、返回队尾元素，如：q.back(); </p>
+<p>5、判断是否为空，如：q.empty(); </p>
+<p>6、返回队列元素个数，如：q.size();<br>这里举一个简单的例子:</p>
+<div class="hljs"><pre><code>#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+int main()
+&#123;
+    queue&lt;int&gt; q;
+    for(int i = 0;i &lt; 10;i++)   //将0~9依次入队
+        q.push(i);
+
+    cout &lt;&lt; q.front() &lt;&lt; &quot; &quot; &lt;&lt; q.back() &lt;&lt; endl; //这里应当输出0和9
+
+    //依次输出0、1、...、9
+    for(int i = 0;i &lt; 10;i++)
+    &#123;
+        cout &lt;&lt; q.front() &lt;&lt; &quot; &quot;;
+        q.pop();
+    &#125;
+    return 0;
+&#125;</code></pre></div>
+<h3 id="五：双端队列（deque）"><a href="#五：双端队列（deque）" class="headerlink" title="五：双端队列（deque）"></a>五：双端队列（deque）</h3><p>这些是deque的一些基本操作：</p>
+<p>push_back(x)/push_front(x) //把x压入后/前端</p>
+<p>back()/front() //访问(不删除)后/前端元素</p>
+<p>pop_back() pop_front() //删除后/前端元素</p>
+<p>empty() //判断deque是否空</p>
+<p>size() //返回deque的元素数量</p>
+<p>clear() //清空deque<br>支持通过sort(d.begin(),d.end())进行排序。</p>
+<h3 id="七：认为的无限大"><a href="#七：认为的无限大" class="headerlink" title="七：认为的无限大"></a>七：认为的无限大</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INF 0x3f3f3f3f</span></code></pre></div>
+<p>0x3f3f3f3f的十进制是1061109567，也就是10^9级别的（和0x7fffffff（32-bit int的最大值）一个数量级），而一般场合下的数据都是小于10^9的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。</p>
+<p>另一方面，由于一般的数据都不会大于10^9，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上0x3f3f3f3f+0x3f3f3f3f=2122219134，这非常大但却没有超过32-bit int的表示范围，所以0x3f3f3f3f还满足了我们“无穷大加无穷大还是无穷大”的需求。</p>
+<p>最大好处：<br>     如果我们想要将某个数组清零，我们通常会使用memset(a,0,sizeof(a))，但是当我们想将某个数组全部赋值为无穷大时（例如解决图论问题时邻接矩阵的初始化），就不能使用memset函数了，因为memset是按字节操作的，它能够对数组清零是因为0的每个字节都是0，现在好了，如果我们将无穷大设为0x3f3f3f3f，那么奇迹就发生了，0x3f3f3f3f的每个字节都是0x3f！<br>     所以要把一段整型数组全部置为无穷大，我们只需要</p>
+<div class="hljs"><pre><code class="hljs lisp">memset(<span class="hljs-name">a</span>,INF,sizeof(<span class="hljs-name">a</span>))</code></pre></div>
+
+<h3 id="七、字符串（String）"><a href="#七、字符串（String）" class="headerlink" title="七、字符串（String）"></a>七、字符串（String）</h3><div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">string</span> s;//默认初始化，一个空字符串
+<span class="hljs-attribute">string</span> s<span class="hljs-number">1</span>(<span class="hljs-string">&quot;ssss&quot;</span>);//s<span class="hljs-number">1</span>是字面值“ssss”的副本
+<span class="hljs-attribute">string</span> s<span class="hljs-number">2</span>(s<span class="hljs-number">1</span>);//s<span class="hljs-number">2</span>是s<span class="hljs-number">1</span>的副本
+<span class="hljs-attribute">string</span> s<span class="hljs-number">3</span>=s<span class="hljs-number">2</span>;//s<span class="hljs-number">3</span>是s<span class="hljs-number">2</span>的副本
+<span class="hljs-attribute">string</span> s<span class="hljs-number">4</span>(<span class="hljs-number">10</span>,&#x27;c&#x27;);//把s<span class="hljs-number">4</span>初始化
+<span class="hljs-attribute">string</span> s<span class="hljs-number">5</span>=<span class="hljs-string">&quot;hiya&quot;</span>;//拷贝初始化
+<span class="hljs-attribute">string</span> s<span class="hljs-number">6</span>=string(<span class="hljs-number">10</span>,&#x27;c&#x27;);//拷贝初始化，生成一个初始化好的对象，拷贝给s<span class="hljs-number">6</span>
+<span class="hljs-attribute">string</span> s<span class="hljs-number">7</span>(cs,<span class="hljs-number">3</span>);//复制字符串cs的前<span class="hljs-number">3</span>个字符到s当中
+<span class="hljs-attribute">tring</span> s<span class="hljs-number">8</span>=<span class="hljs-string">&quot;asac&quot;</span>;
+<span class="hljs-attribute">string</span> s<span class="hljs-number">9</span>(s<span class="hljs-number">8</span>,<span class="hljs-number">2</span>);//从s<span class="hljs-number">2</span>的第二个字符开始拷贝，不能超过s<span class="hljs-number">2</span>的size
+<span class="hljs-attribute">string</span> s<span class="hljs-number">10</span>=<span class="hljs-string">&quot;qweqweqweq&quot;</span>;
+<span class="hljs-attribute">string</span> s<span class="hljs-number">11</span>(s<span class="hljs-number">10</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>);//s<span class="hljs-number">4</span>是s<span class="hljs-number">3</span>从下标<span class="hljs-number">3</span>开始<span class="hljs-number">4</span>个字符的拷贝，超过s<span class="hljs-number">3</span>.size出现未定义</code></pre></div>
+<h3 id="八、pair类型"><a href="#八、pair类型" class="headerlink" title="八、pair类型"></a>八、pair类型</h3><p>pair定义于头文件utility中，主要的作用是将两个数据组合成一个数据，两个数据可以是同一类型或者不同类型。换句话说，==pair就是一组键值对（key-value）==。其实可以发现，pair本质上是个结构体。<br>一些典型操作</p>
+<div class="hljs"><pre><code class="hljs armasm"><span class="hljs-symbol">pair</span>&lt;T1,T2&gt; <span class="hljs-built_in">p1</span><span class="hljs-comment">;</span>
+<span class="hljs-symbol">pair</span>&lt;T1,T2&gt; <span class="hljs-built_in">p2</span><span class="hljs-comment">;</span>
+<span class="hljs-symbol">pair</span>&lt;T1,T2&gt; <span class="hljs-built_in">p1</span>(<span class="hljs-built_in">v1</span>,<span class="hljs-built_in">v2</span>)<span class="hljs-comment">;</span>
+<span class="hljs-symbol">p2</span>(<span class="hljs-built_in">v1</span>,<span class="hljs-built_in">v2</span>)<span class="hljs-comment">;</span>
+<span class="hljs-symbol">p1</span> &lt; <span class="hljs-built_in">p2</span><span class="hljs-comment">;</span>
+<span class="hljs-symbol">p1</span> == <span class="hljs-built_in">p2</span><span class="hljs-comment">;</span>
+<span class="hljs-symbol">p.first</span><span class="hljs-comment">;</span>
+<span class="hljs-symbol">p.second</span><span class="hljs-comment">;</span>
+
+<span class="hljs-symbol">make_pair</span>(<span class="hljs-built_in">v1</span>,<span class="hljs-built_in">v2</span>)<span class="hljs-comment">;//make_pair是一个函数，可以生成pair对象</span>
+<span class="hljs-comment">//例如： </span>
+<span class="hljs-comment">//pair&lt;string,string&gt; next_auth;</span>
+<span class="hljs-comment">//string first,last;</span>
+<span class="hljs-comment">//while (cin &gt;&gt; first &gt;&gt; last)&#123;</span>
+<span class="hljs-comment">//      next_auth = make_pair(first,last);</span>
+<span class="hljs-comment">//&#125;</span>
+</code></pre></div>
+<p>也可以使用typedef简化声明</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">pair</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">string</span>&gt; name;
+ <span class="hljs-function">name <span class="hljs-title">dotcom</span><span class="hljs-params">(<span class="hljs-string">&quot;is&quot;</span>,<span class="hljs-string">&quot;programmer&quot;</span>)</span></span>;</code></pre></div>
+
+<h3 id="九、map类型"><a href="#九、map类型" class="headerlink" title="九、map类型"></a>九、map类型</h3><p>map可以当做一个容器（装载具有一定格式的数据）；pair可以理解为元素（放入到容器的的每个个体），pair并没有单独行动的典型用法，正常都是配合map来使用（即把pair这个元素插入到map这个容器里面）。</p>
+<p>pair与map怎样联系起来：<br>通过map的insert()可以把一个pair对象作为map 的参数，如</p>
+<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">map1</span>.insert(pair<span class="hljs-number">1</span>&lt;id,grade&gt;);</code></pre></div>
+<p>==根据key值快速查找记录，查找的复杂度基本是Log(N)==</p>
+<p>（1）数据的插入</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">//数据的插入--第一种：用insert函数插入pair数据</span>
+<span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt; mapStudent;  
+mapStudent.insert(<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;student_one&quot;</span>));  
+
+<span class="hljs-comment">//第二种：用insert函数插入value_type数据，下面举例说明</span>
+<span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt; mapStudent;  
+mapStudent.insert(<span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;::value_type (<span class="hljs-number">1</span>, <span class="hljs-string">&quot;student_one&quot;</span>));  
+  
+<span class="hljs-comment">//第三种：用数组方式插入数据，下面举例说明</span>
+<span class="hljs-built_in">map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt; mapStudent;
+mapStudent[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;student_one&quot;</span>;</code></pre></div>
+<p>（2）map的大小</p>
+<p>eg.</p>
+<div class="hljs"><pre><code class="hljs fortran"><span class="hljs-built_in">Int</span> nSize = mapStudent<span class="hljs-number">.</span><span class="hljs-built_in">size</span>();</code></pre></div>
+<p>(3)查找元素</p>
+<p>第一种：用count函数来判定关键字是否出现，其缺点是无法定位数据出现位置,由于map的特性，一对一的映射关系，就决定了count函数的返回值只有两个，要么是0，要么是1，出现的情况，当然是返回1了</p>
+<p>第二种：用find函数来定位数据出现位置，它返回的一个迭代器，当数据出现时，它返回数据所在位置的迭代器，如果map中没有要查找的数据，它返回的迭代器等于end函数返回的迭代器。</p>
+<h3 id="十、优先队列"><a href="#十、优先队列" class="headerlink" title="十、优先队列"></a>十、优先队列</h3><p>普通的队列是一种先进先出的数据结构，元素在队列尾追加，而从队列头删除。</p>
+<p>在优先队列中，元素被赋予优先级。++当访问元素时，具有最高优先级的元素最先删除++。优先队列具有最高级先出 （==first in, largest out==）的行为特征。</p>
+<p>首先要包含头文件#include<queue>, 他和queue不同的就在于我们可以自定义其中数据的优先级, 让优先级高的排在队列前面,优先出队。</p>
+<p>++优先队列具有队列的所有特性++，包括队列的基本操作，只是在这基础上添加了内部的一个排序，它本质是一个堆实现的。</p>
+<p>和队列基本操作相同:</p>
+<ul>
+<li> top 访问队头元素</li>
+<li>empty 队列是否为空</li>
+<li>size 返回队列内元素个数</li>
+<li>push 插入元素到队尾 (并排序)</li>
+<li>emplace 原地构造一个元素并插入队列</li>
+<li>pop 弹出队头元素</li>
+<li>swap 交换内容</li>
+</ul>
+<p>==定义：priority_queue&lt;Type, Container, Functional&gt;==<br>Type 就是数据类型，Container 就是容器类型（Container必须是用数组实现的容器，比如vector,deque等等，但不能用 list。STL里面默认用的是vector），Functional 就是比较的方式。</p>
+<p>当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆。</p>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">//升序队列，小顶堆</span>
+<span class="hljs-number">2</span> <span class="hljs-built_in">priority_queue</span> &lt;<span class="hljs-keyword">int</span>,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;,greater&lt;<span class="hljs-keyword">int</span>&gt; &gt; q;
+<span class="hljs-number">3</span> <span class="hljs-comment">//降序队列，大顶堆</span>
+<span class="hljs-number">4</span> <span class="hljs-built_in">priority_queue</span> &lt;<span class="hljs-keyword">int</span>,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;,less&lt;<span class="hljs-keyword">int</span>&gt; &gt;q;
+<span class="hljs-number">5</span> 
+<span class="hljs-number">6</span> <span class="hljs-comment">//greater和less是std实现的两个仿函数（就是使一个类的使用看上去像一个函数。其实现就是类中实现一个operator()，这个类就有了类似函数的行为，就是一个仿函数类了）</span></code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/11/14/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF%E8%B4%A8%E6%95%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/14/%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E8%B6%85%E6%97%B6/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "yTce2vMAnjCaqp43J8Mrmi74-gzGzoHsz",
+          app_key: "gtHLNdR4P4KT3LC1dLCLzAWA",
+          placeholder: "想说的话",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/alenkwin" target="_blank" rel="nofollow noopener"><span>github</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

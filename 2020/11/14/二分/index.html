@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>我的第一篇博客文章 - Hexo</title>
+  <title>Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -141,8 +141,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-23 17:18" pubdate>
-        October 23, 2020 pm
+      <time datetime="2020-11-14 20:50" pubdate>
+        November 14, 2020 pm
       </time>
     </span>
   
@@ -153,7 +153,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15 字
+      287 字
     </span>
   
 
@@ -163,7 +163,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      3
        分钟
     </span>
   
@@ -193,15 +193,43 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">我的第一篇博客文章</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body" id="post-body">
-              <p>##第一章</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>##第二章</p>
-<p>内容</p>
-<hr>
-<p>##参考文献</p>
-<p>blblblblll</p>
+              <h3 id="一、二分的STL函数"><a href="#一、二分的STL函数" class="headerlink" title="一、二分的ＳＴＬ函数"></a>一、二分的ＳＴＬ函数</h3><p>binary_search　返回bool值，查找是否存在</p>
+<p>lower_bound　返回可插入的最小位置的迭代器</p>
+<p>ｅｇ．</p>
+<div class="hljs"><pre><code class="hljs angelscript">lower_bound（a，a+<span class="hljs-number">11</span>，　<span class="hljs-number">55</span>)
+／／ａ代表待查的起始位置，，a+<span class="hljs-number">11</span>代表待查的最后位置，<span class="hljs-number">55</span>是要插入的元素
+／／合起来说就是从ａ数组的a[<span class="hljs-number">0</span>]到a[<span class="hljs-number">10</span>]中插入<span class="hljs-number">55</span>的最小能插入的位置</code></pre></div>
+<p>upper_bound　返回可插入的最大位置的迭代器　，语法同上</p>
+<p>上面的lower_bound和upper_bound自己实现的代码如下：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> find_low(<span class="hljs-built_in">int</span> x)
+&#123;
+	<span class="hljs-built_in">int</span> mid, l = <span class="hljs-number">1</span>, r = n;
+	<span class="hljs-keyword">while</span>(l &lt;= r)
+	&#123;
+		mid = (l+r) &gt;&gt; <span class="hljs-number">1</span>;<span class="hljs-comment">//这里的意思是右移一位（移二进制），即除以二</span>
+		<span class="hljs-keyword">if</span>(a[mid] &lt; x) l = mid+<span class="hljs-number">1</span>;
+			<span class="hljs-keyword">else</span> r = mid<span class="hljs-number">-1</span>;
+	&#125;
+	<span class="hljs-keyword">return</span> l;
+&#125;
+<span class="hljs-built_in">int</span> find_up(<span class="hljs-built_in">int</span> x)
+&#123;
+	<span class="hljs-built_in">int</span> mid, l = <span class="hljs-number">1</span>, r = n;
+	<span class="hljs-keyword">while</span>(l &lt;= r)
+	&#123;
+		mid = (l+r) &gt;&gt; <span class="hljs-number">1</span>;
+		<span class="hljs-keyword">if</span>(a[mid] &lt;= x) l = mid+<span class="hljs-number">1</span>;
+			<span class="hljs-keyword">else</span> r = mid<span class="hljs-number">-1</span>;
+	&#125;
+	<span class="hljs-keyword">return</span> l;
+&#125;
+｝</code></pre></div>
+
+<h4 id="二分答案＋检验"><a href="#二分答案＋检验" class="headerlink" title="二分答案＋检验"></a>二分答案＋检验</h4><p>对于难以直接确定解的问题，采取二分枚举＋检验的思想将求解类问题转换为检验类问题</p>
+<h4 id="解决最大值最小或者最小值最大的常见方法"><a href="#解决最大值最小或者最小值最大的常见方法" class="headerlink" title="解决最大值最小或者最小值最大的常见方法"></a>解决最大值最小或者最小值最大的常见方法</h4><p>二分和贪心</p>
 
             </div>
             <hr>
@@ -218,7 +246,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/14/%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E8%B6%85%E6%97%B6/">
+                      <a href="/2020/11/14/%E6%B1%82%E4%B8%80%E4%B8%AA%E5%8C%BA%E9%97%B4%E5%86%85%E6%9C%80%E7%9F%AD%E7%9A%84%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8C%BA%E9%97%B4%E6%95%B0/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Previous</span>
@@ -228,8 +256,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/23/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/11/14/%E5%BF%AB%E8%AF%BB/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -397,7 +425,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "我的第一篇博客文章&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
