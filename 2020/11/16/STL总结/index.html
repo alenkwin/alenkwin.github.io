@@ -17,7 +17,7 @@
   <meta name="description" content="����ѧϰ�ʼǵĲ���">
   <meta name="author" content="Alenk">
   <meta name="keywords" content="ѧϰ�ʼ�">
-  <title>AlenkWin</title>
+  <title>STL总结 - AlenkWin</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -141,8 +141,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-14 20:49" pubdate>
-        November 14, 2020 pm
+      <time datetime="2020-11-16 08:32" pubdate>
+        November 16, 2020 am
       </time>
     </span>
   
@@ -153,7 +153,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      6.5k 字
     </span>
   
 
@@ -163,7 +163,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      41
+      83
        分钟
     </span>
   
@@ -193,11 +193,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">STL总结</h1>
             
             <div class="markdown-body" id="post-body">
-              <p>title: STL总结</p>
-<h3 id="一、栈（stack）"><a href="#一、栈（stack）" class="headerlink" title="一、栈（stack）"></a>一、栈（stack）</h3><p>stack实现了一种先进后出的数据结构，使用时需要包含stack头文件<br>C++定义stack语法：</p>
+              <h3 id="一、栈（stack）"><a href="#一、栈（stack）" class="headerlink" title="一、栈（stack）"></a>一、栈（stack）</h3><p>stack实现了一种先进后出的数据结构，使用时需要包含stack头文件<br>C++定义stack语法：</p>
 <div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">int</span>&gt; s;<span class="hljs-comment">//int为栈的数据类型，可以为string,double等</span></code></pre></div>
 
 
@@ -425,18 +424,399 @@ mapStudent[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot
 </ul>
 <p>==定义：priority_queue&lt;Type, Container, Functional&gt;==<br>Type 就是数据类型，Container 就是容器类型（Container必须是用数组实现的容器，比如vector,deque等等，但不能用 list。STL里面默认用的是vector），Functional 就是比较的方式。</p>
 <p>当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆。</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">//升序队列，小顶堆</span>
-<span class="hljs-number">2</span> <span class="hljs-built_in">priority_queue</span> &lt;<span class="hljs-keyword">int</span>,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;,greater&lt;<span class="hljs-keyword">int</span>&gt; &gt; q;
+<div class="hljs"><pre><code class="hljs reasonml"><span class="hljs-comment">//升序队列，小顶堆</span>
+<span class="hljs-number">2</span> priority_queue &lt;<span class="hljs-built_in">int</span>,vector&lt;<span class="hljs-built_in">int</span>&gt;,greater&lt;<span class="hljs-built_in">int</span>&gt; &gt; q;
 <span class="hljs-number">3</span> <span class="hljs-comment">//降序队列，大顶堆</span>
-<span class="hljs-number">4</span> <span class="hljs-built_in">priority_queue</span> &lt;<span class="hljs-keyword">int</span>,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;,less&lt;<span class="hljs-keyword">int</span>&gt; &gt;q;
+<span class="hljs-number">4</span> priority_queue &lt;<span class="hljs-built_in">int</span>,vector&lt;<span class="hljs-built_in">int</span>&gt;,less&lt;<span class="hljs-built_in">int</span>&gt; &gt;q;
 <span class="hljs-number">5</span> 
-<span class="hljs-number">6</span> <span class="hljs-comment">//greater和less是std实现的两个仿函数（就是使一个类的使用看上去像一个函数。其实现就是类中实现一个operator()，这个类就有了类似函数的行为，就是一个仿函数类了）</span></code></pre></div>
+<span class="hljs-number">6</span> <span class="hljs-comment">//greater和less是std实现的两个仿函数（就是使一个类的使用看上去像一个函数。其实现就是类中实现一个operator()，这个类就有了类似函数的行为，就是一个仿函数类了）### 一、栈（stack）</span>
 
+stack实现了一种先进后出的数据结构，使用时需要包含stack头文件
+C++定义stack语法：
+
+
+​```
+stack&lt;<span class="hljs-built_in">int</span>&gt; s;<span class="hljs-comment">//int为栈的数据类型，可以为string,double等</span>
+​```
+
+
+C++中stack的基本操作有：
+
+<span class="hljs-number">1</span>、出栈：如 
+s.pop<span class="hljs-literal">()</span> 注意并不返回出栈的元素 
+
+<span class="hljs-number">2</span>、进栈：如 s.push(x) 
+
+<span class="hljs-number">3</span>、访问栈顶元素：如s.top<span class="hljs-literal">()</span>; 
+
+<span class="hljs-number">4</span>、判断栈空：如 s.empty<span class="hljs-literal">()</span> 栈为空时返回<span class="hljs-literal">true</span> 
+
+<span class="hljs-number">5</span>、返回栈中元素个数，如：s.size<span class="hljs-literal">()</span>
+   
+### 二、动态数组（vector）
+
+C++中的vector是一个可以改变大小的数组，当解题时无法知道自己需要的数组规模有多大时可以用vector来达到最大节约空间的目的。使用时需要包含vector头文件。
+定义一个一维动态数组的语法为
+
+
+​```
+vector&lt;<span class="hljs-built_in">int</span>&gt; a;  <span class="hljs-comment">//int为该动态数组的元素数据类型，可以为string、double等</span>
+​```
+
+
+定义一个二维动态数组的语法为
+
+
+​```
+vector&lt;<span class="hljs-built_in">int</span>*&gt; a; <span class="hljs-comment">//三维数据类型为int**，以此类推。</span>
+​```
+
+
+C++中vector的基本操作有：
+
+<span class="hljs-number">1</span>、push<span class="hljs-constructor">_back(<span class="hljs-params">x</span>)</span> 在数组的最后添加元素x。 
+
+<span class="hljs-number">2</span>、pop<span class="hljs-constructor">_back()</span> 删除最后一个元素，无返回值。 
+
+<span class="hljs-number">3</span>、at(i) 返回位置i的元素。 
+
+<span class="hljs-number">4</span>、<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span> 返回一个迭代器，指向第一个元素。 
+
+<span class="hljs-number">5</span>、<span class="hljs-keyword">end</span><span class="hljs-literal">()</span> 返回一个迭代器，指向最后一个元素的下一个位置。 
+
+<span class="hljs-number">6</span>、front<span class="hljs-literal">()</span> 返回数组头的引用。 
+
+<span class="hljs-number">7</span>、capacity(x) 为vector分配空间 
+
+<span class="hljs-number">8</span>、size<span class="hljs-literal">()</span> 返回数组大小 
+
+<span class="hljs-number">9</span>、resize(x) 改变数组大小，如果x比之前分配的空间大，则自动填充默认值。 
+
+<span class="hljs-number">10</span>、insert 插入元素 
+
+①a.insert(a.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>,<span class="hljs-number">10</span>); 将<span class="hljs-number">10</span>插入到a的起始位置前。 
+
+②a.insert(a.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>,<span class="hljs-number">3</span>,<span class="hljs-number">10</span>) 将<span class="hljs-number">10</span>插入到数组位置的<span class="hljs-number">0</span>-<span class="hljs-number">2</span>处。 
+
+<span class="hljs-number">11</span>、erase 删除元素 
+
+①a.erase(a.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>); 将起始位置的元素删除。 
+
+②a.erase(a.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>,<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>+<span class="hljs-number">2</span>); 将<span class="hljs-number">0</span>~<span class="hljs-number">2</span>之间的元素删除。 
+
+<span class="hljs-number">12</span>、rbegin<span class="hljs-literal">()</span> 返回一个逆序迭代器，它指向最后一个元素。 
+
+<span class="hljs-number">13</span>、rend<span class="hljs-literal">()</span> 返回一个逆序迭代器，它指向的第一个元素前面的位置。 
+
+<span class="hljs-number">14</span>、clear<span class="hljs-literal">()</span>清空所有元素。
+这里举一个简单的例子：
+
+    #<span class="hljs-keyword">include</span> &lt;iostream&gt;
+    #<span class="hljs-keyword">include</span> &lt;algorithm&gt;
+    #<span class="hljs-keyword">include</span> &lt;vector&gt;
+    using namespace std;
+     
+    <span class="hljs-built_in">int</span> main<span class="hljs-literal">()</span>
+    &#123;
+        vector&lt;<span class="hljs-built_in">int</span>&gt; a;
+        vector&lt;<span class="hljs-built_in">int</span>&gt; b;
+     
+        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)    <span class="hljs-comment">//向数组a依次添加0~9</span>
+            a.push<span class="hljs-constructor">_back(<span class="hljs-params">i</span>)</span>;
+     
+        a.swap(b);      <span class="hljs-comment">//将数组a元素与数组b元素交换</span>
+        cout &lt;&lt; a.size<span class="hljs-literal">()</span> &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; b.size<span class="hljs-literal">()</span> &lt;&lt; endl;    <span class="hljs-comment">//此时应当输出 0 10</span>
+     
+        <span class="hljs-keyword">for</span> (vector&lt;<span class="hljs-built_in">int</span>&gt;::iterator it = b.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>; it != b.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>; it++)<span class="hljs-comment">//从第一个元素开始遍历数组元素</span>
+            cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;     <span class="hljs-comment">//依次输出0~9</span>
+        cout &lt;&lt; endl;
+     
+        b.erase(b.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span> + <span class="hljs-number">1</span>);     <span class="hljs-comment">//删除位置1的元素，即元素1.</span>
+        cout &lt;&lt; b.size<span class="hljs-literal">()</span> &lt;&lt; endl;   <span class="hljs-comment">//由于删除了一个元素，此时输出应当为8</span>
+     
+        <span class="hljs-keyword">for</span> (vector&lt;<span class="hljs-built_in">int</span>&gt;::reverse_iterator rit = b.rbegin<span class="hljs-literal">()</span>; rit != b.rend<span class="hljs-literal">()</span>; ++rit)<span class="hljs-comment">//逆向输出数组元素</span>
+            cout &lt;&lt; *rit &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;    <span class="hljs-comment">//应当输出9 8 7 6 5 4 3 2 0</span>
+        cout &lt;&lt; endl;
+     
+        b.resize(<span class="hljs-number">9</span>);    <span class="hljs-comment">//将数组空间设定为9，相当于比之前多了1个位置</span>
+        b.push<span class="hljs-constructor">_back(20)</span>;<span class="hljs-comment">//在尾部添加元素20</span>
+     
+        <span class="hljs-keyword">for</span> (vector&lt;<span class="hljs-built_in">int</span>&gt;::iterator it = b.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>; it != b.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>; it++)
+            cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;  <span class="hljs-comment">//应当输出0 2 3 4 5 6 7 8 9 20</span>
+     
+        return <span class="hljs-number">0</span>;
+    &#125;
+
+
+### 三、集合(set)
+
+C++中集合(set)类似于数学上的集合，即每个元素只能出现一次。set的特性是，所有元素都会根据元素的键值自动排序，set的元素不像map那样可以同时拥有实值(value)和键值(key),set元素的键值就是实值，实值就是键值。set不允许两个元素有相同的键值。使用该容器需要包含set头文件。
+定义一个set的语法为：
+
+
+​```
+set&lt;<span class="hljs-built_in">int</span>&gt; s; <span class="hljs-comment">//int为集合的数据类型，可以为string,double等</span>
+​```
+
+
+C++中set的基本操作有：
+
+<span class="hljs-number">1</span>、<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span> 返回一个迭代器，指向第一个元素。 
+
+<span class="hljs-number">2</span>、<span class="hljs-keyword">end</span><span class="hljs-literal">()</span> 返回一个迭代器，指向最后一个元素的下一个位置。 
+
+<span class="hljs-number">3</span>、clear<span class="hljs-literal">()</span>清空set的所有元素。 
+
+<span class="hljs-number">4</span>、empty<span class="hljs-literal">()</span> 判断是否为空。 
+
+<span class="hljs-number">5</span>、size<span class="hljs-literal">()</span> 返回当前元素个数 
+
+<span class="hljs-number">6</span>、erase(it) 删除迭代器指针it指向的元素。 
+
+<span class="hljs-number">7</span>、insert(a) 插入元素a 
+
+<span class="hljs-number">8</span>、count<span class="hljs-literal">()</span> 查找某个元素出现的次数，只有可能为<span class="hljs-number">0</span>或<span class="hljs-number">1</span>。 
+
+<span class="hljs-number">9</span>、find<span class="hljs-literal">()</span> 查找某个元素出现的位置，如果找到则返回这个元素的迭代器，如果不存在，则返回s.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>
+这里举一个简单的例子：
+
+    #<span class="hljs-keyword">include</span> &lt;iostream&gt;
+    #<span class="hljs-keyword">include</span> &lt;algorithm&gt;
+    #<span class="hljs-keyword">include</span> &lt;set&gt;
+    using namespace std;
+     
+    <span class="hljs-built_in">int</span> main<span class="hljs-literal">()</span>
+    &#123;
+        set&lt;<span class="hljs-built_in">int</span>&gt; s;
+        s.insert(<span class="hljs-number">20</span>);
+        s.insert(<span class="hljs-number">10</span>);
+        s.insert(<span class="hljs-number">30</span>);
+        s.insert(<span class="hljs-number">10</span>);
+     
+        cout &lt;&lt; s.size<span class="hljs-literal">()</span> &lt;&lt; endl; <span class="hljs-comment">//将输出3，因为集合中元素不能重复</span>
+        <span class="hljs-keyword">for</span> (set&lt;<span class="hljs-built_in">int</span>&gt;::iterator it = s.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>; it != s.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>; it++)
+            cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;     <span class="hljs-comment">//将输出10 20 30，集合会自动排序</span>
+        cout &lt;&lt; endl;
+     
+        <span class="hljs-comment">//将输出1 0</span>
+        cout &lt;&lt; count(s.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>, s.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>, <span class="hljs-number">20</span>) &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; count(s.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>, s.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>, <span class="hljs-number">40</span>) &lt;&lt; endl;
+     
+        s.erase(s.find(<span class="hljs-number">10</span>));    <span class="hljs-comment">//删除元素10</span>
+        <span class="hljs-keyword">for</span> (set&lt;<span class="hljs-built_in">int</span>&gt;::iterator it = s.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>; it != s.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>; it++)
+            cout &lt;&lt; *it &lt;&lt; <span class="hljs-string">&quot; &quot;</span>; <span class="hljs-comment">//将输出20 30</span>
+        return <span class="hljs-number">0</span>;
+    &#125;
+
+### 四、队列(queue)
+
+queue实现了一种先进先出的数据结构，使用时需要包含queue头文件。
+定义一个queue的语法为：
+
+
+​```
+queue&lt;<span class="hljs-built_in">int</span>&gt; q;   <span class="hljs-comment">//int为队列的数据类型，可以为string,double等</span>
+​```
+
+
+C++中queue的基本操作有：
+
+<span class="hljs-number">1</span>、入队，如：q.push(x) 将元素x置于队列的末端 
+
+<span class="hljs-number">2</span>、出队，如: q.pop<span class="hljs-literal">()</span> 同样不会返回弹出元素的值 
+
+<span class="hljs-number">3</span>、返回队首元素，如：q.front<span class="hljs-literal">()</span>; 
+
+<span class="hljs-number">4</span>、返回队尾元素，如：q.back<span class="hljs-literal">()</span>; 
+
+<span class="hljs-number">5</span>、判断是否为空，如：q.empty<span class="hljs-literal">()</span>; 
+
+<span class="hljs-number">6</span>、返回队列元素个数，如：q.size<span class="hljs-literal">()</span>;
+这里举一个简单的例子:
+
+    #<span class="hljs-keyword">include</span> &lt;iostream&gt;
+    #<span class="hljs-keyword">include</span> &lt;queue&gt;
+    using namespace std;
+     
+    <span class="hljs-built_in">int</span> main<span class="hljs-literal">()</span>
+    &#123;
+        queue&lt;<span class="hljs-built_in">int</span>&gt; q;
+        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">10</span>;i++)   <span class="hljs-comment">//将0~9依次入队</span>
+            q.push(i);
+     
+        cout &lt;&lt; q.front<span class="hljs-literal">()</span> &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; q.back<span class="hljs-literal">()</span> &lt;&lt; endl; <span class="hljs-comment">//这里应当输出0和9</span>
+     
+        <span class="hljs-comment">//依次输出0、1、...、9</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">10</span>;i++)
+        &#123;
+            cout &lt;&lt; q.front<span class="hljs-literal">()</span> &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
+            q.pop<span class="hljs-literal">()</span>;
+        &#125;
+        return <span class="hljs-number">0</span>;
+    &#125;
+### 五：双端队列（deque）
+
+这些是deque的一些基本操作：
+
+push<span class="hljs-constructor">_back(<span class="hljs-params">x</span>)</span>/push<span class="hljs-constructor">_front(<span class="hljs-params">x</span>)</span> <span class="hljs-comment">//把x压入后/前端</span>
+
+back<span class="hljs-literal">()</span>/front<span class="hljs-literal">()</span> <span class="hljs-comment">//访问(不删除)后/前端元素</span>
+
+pop<span class="hljs-constructor">_back()</span> pop<span class="hljs-constructor">_front()</span> <span class="hljs-comment">//删除后/前端元素</span>
+
+empty<span class="hljs-literal">()</span> <span class="hljs-comment">//判断deque是否空</span>
+
+size<span class="hljs-literal">()</span> <span class="hljs-comment">//返回deque的元素数量</span>
+
+clear<span class="hljs-literal">()</span> <span class="hljs-comment">//清空deque</span>
+支持通过sort(d.<span class="hljs-keyword">begin</span><span class="hljs-literal">()</span>,d.<span class="hljs-keyword">end</span><span class="hljs-literal">()</span>)进行排序。
+
+### 七：认为的无限大
+
+​```
+#define INF <span class="hljs-number">0x3f3f3f3f</span>
+​```
+<span class="hljs-number">0x3f3f3f3f</span>的十进制是<span class="hljs-number">1061109567</span>，也就是<span class="hljs-number">10</span>^<span class="hljs-number">9</span>级别的（和<span class="hljs-number">0x7fffffff</span>（<span class="hljs-number">32</span>-bit <span class="hljs-built_in">int</span>的最大值）一个数量级），而一般场合下的数据都是小于<span class="hljs-number">10</span>^<span class="hljs-number">9</span>的，所以它可以作为无穷大使用而不致出现数据大于无穷大的情形。
+
+另一方面，由于一般的数据都不会大于<span class="hljs-number">10</span>^<span class="hljs-number">9</span>，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上<span class="hljs-number">0x3f3f3f3f</span>+<span class="hljs-number">0x3f3f3f3f</span>=<span class="hljs-number">2122219134</span>，这非常大但却没有超过<span class="hljs-number">32</span>-bit <span class="hljs-built_in">int</span>的表示范围，所以<span class="hljs-number">0x3f3f3f3f</span>还满足了我们“无穷大加无穷大还是无穷大”的需求。
+
+最大好处：
+     如果我们想要将某个数组清零，我们通常会使用memset(a,<span class="hljs-number">0</span>,sizeof(a))，但是当我们想将某个数组全部赋值为无穷大时（例如解决图论问题时邻接矩阵的初始化），就不能使用memset函数了，因为memset是按字节操作的，它能够对数组清零是因为<span class="hljs-number">0</span>的每个字节都是<span class="hljs-number">0</span>，现在好了，如果我们将无穷大设为<span class="hljs-number">0x3f3f3f3f</span>，那么奇迹就发生了，<span class="hljs-number">0x3f3f3f3f</span>的每个字节都是<span class="hljs-number">0x3f</span>！
+     所以要把一段整型数组全部置为无穷大，我们只需要
+     
+​```
+memset(a,INF,sizeof(a))
+​```
+
+### 七、字符串（String）
+
+​```
+    <span class="hljs-built_in">string</span> s;<span class="hljs-comment">//默认初始化，一个空字符串</span>
+    <span class="hljs-built_in">string</span> s1(<span class="hljs-string">&quot;ssss&quot;</span>);<span class="hljs-comment">//s1是字面值“ssss”的副本</span>
+    <span class="hljs-built_in">string</span> s2(s1);<span class="hljs-comment">//s2是s1的副本</span>
+    <span class="hljs-built_in">string</span> s3=s2;<span class="hljs-comment">//s3是s2的副本</span>
+    <span class="hljs-built_in">string</span> s4(<span class="hljs-number">10</span>,<span class="hljs-character">&#x27;c&#x27;</span>);<span class="hljs-comment">//把s4初始化</span>
+    <span class="hljs-built_in">string</span> s5=<span class="hljs-string">&quot;hiya&quot;</span>;<span class="hljs-comment">//拷贝初始化</span>
+    <span class="hljs-built_in">string</span> s6=<span class="hljs-built_in">string</span>(<span class="hljs-number">10</span>,<span class="hljs-character">&#x27;c&#x27;</span>);<span class="hljs-comment">//拷贝初始化，生成一个初始化好的对象，拷贝给s6</span>
+    <span class="hljs-built_in">string</span> s7(cs,<span class="hljs-number">3</span>);<span class="hljs-comment">//复制字符串cs的前3个字符到s当中</span>
+    tring s8=<span class="hljs-string">&quot;asac&quot;</span>;
+    <span class="hljs-built_in">string</span> s9(s8,<span class="hljs-number">2</span>);<span class="hljs-comment">//从s2的第二个字符开始拷贝，不能超过s2的size</span>
+    <span class="hljs-built_in">string</span> s10=<span class="hljs-string">&quot;qweqweqweq&quot;</span>;
+    <span class="hljs-built_in">string</span> s11(s10,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>);<span class="hljs-comment">//s4是s3从下标3开始4个字符的拷贝，超过s3.size出现未定义</span>
+​```
+### 八、pair类型
+pair定义于头文件utility中，主要的作用是将两个数据组合成一个数据，两个数据可以是同一类型或者不同类型。换句话说，==pair就是一组键值对（key-value）==。其实可以发现，pair本质上是个结构体。
+一些典型操作
+​```
+pair&lt;T1,T2&gt; p1;
+pair&lt;T1,T2&gt; p2;
+pair&lt;T1,T2&gt; p1(v1,v2);
+p2(v1,v2);
+p1 &lt; p2;
+p1<span class="hljs-operator"> == </span>p2;
+p.first;
+p.second;
+
+make<span class="hljs-constructor">_pair(<span class="hljs-params">v1</span>,<span class="hljs-params">v2</span>)</span>;<span class="hljs-comment">//make_pair是一个函数，可以生成pair对象</span>
+<span class="hljs-comment">//例如： </span>
+<span class="hljs-comment">//pair&lt;string,string&gt; next_auth;</span>
+<span class="hljs-comment">//string first,last;</span>
+<span class="hljs-comment">//while (cin &gt;&gt; first &gt;&gt; last)&#123;</span>
+<span class="hljs-comment">//      next_auth = make_pair(first,last);</span>
+<span class="hljs-comment">//&#125;</span>
+
+​```
+也可以使用typedef简化声明
+
+​```
+typedef pair&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">string</span>&gt; name;
+ name dotcom(<span class="hljs-string">&quot;is&quot;</span>,<span class="hljs-string">&quot;programmer&quot;</span>);
+​```
+
+### 九、map类型
+map可以当做一个容器（装载具有一定格式的数据）；pair可以理解为元素（放入到容器的的每个个体），pair并没有单独行动的典型用法，正常都是配合map来使用（即把pair这个元素插入到map这个容器里面）。
+
+pair与map怎样联系起来：
+通过map的insert<span class="hljs-literal">()</span>可以把一个pair对象作为map 的参数，如
+
+​```
+map1.insert(pair1&lt;id,grade&gt;);
+​```
+==根据key值快速查找记录，查找的复杂度基本是<span class="hljs-constructor">Log(N)</span>==
+
+（<span class="hljs-number">1</span>）数据的插入
+
+​```
+<span class="hljs-comment">//数据的插入--第一种：用insert函数插入pair数据</span>
+map&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt; mapStudent;  
+mapStudent.insert(pair&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt;(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;student_one&quot;</span>));  
+
+<span class="hljs-comment">//第二种：用insert函数插入value_type数据，下面举例说明</span>
+map&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt; mapStudent;  
+mapStudent.insert(map&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt;::value_type (<span class="hljs-number">1</span>, <span class="hljs-string">&quot;student_one&quot;</span>));  
+  
+<span class="hljs-comment">//第三种：用数组方式插入数据，下面举例说明</span>
+map&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt; mapStudent;
+mapStudent<span class="hljs-literal">[<span class="hljs-number">1</span>]</span> = <span class="hljs-string">&quot;student_one&quot;</span>;  
+​```
+（<span class="hljs-number">2</span>）map的大小
+
+eg.
+​```
+Int nSize = mapStudent.size<span class="hljs-literal">()</span>;
+​```
+(<span class="hljs-number">3</span>)查找元素
+
+第一种：用count函数来判定关键字是否出现，其缺点是无法定位数据出现位置,由于map的特性，一对一的映射关系，就决定了count函数的返回值只有两个，要么是<span class="hljs-number">0</span>，要么是<span class="hljs-number">1</span>，出现的情况，当然是返回<span class="hljs-number">1</span>了
+
+第二种：用find函数来定位数据出现位置，它返回的一个迭代器，当数据出现时，它返回数据所在位置的迭代器，如果map中没有要查找的数据，它返回的迭代器等于<span class="hljs-keyword">end</span>函数返回的迭代器。
+
+
+### 十、优先队列
+普通的队列是一种先进先出的数据结构，元素在队列尾追加，而从队列头删除。
+
+在优先队列中，元素被赋予优先级。++当访问元素时，具有最高优先级的元素最先删除++。优先队列具有最高级先出 （==first <span class="hljs-keyword">in</span>, largest out==）的行为特征。
+
+ 
+
+首先要包含头文件#<span class="hljs-keyword">include</span>&lt;queue&gt;, 他和queue不同的就在于我们可以自定义其中数据的优先级, 让优先级高的排在队列前面,优先出队。
+
+++优先队列具有队列的所有特性++，包括队列的基本操作，只是在这基础上添加了内部的一个排序，它本质是一个堆实现的。
+ 
+和队列基本操作相同:
+-  top 访问队头元素
+- empty 队列是否为空
+- size 返回队列内元素个数
+- push 插入元素到队尾 (并排序)
+- emplace 原地构造一个元素并插入队列
+- pop 弹出队头元素
+- swap 交换内容
+
+==定义：priority_queue&lt;Type, Container, Functional&gt;==
+Type 就是数据类型，Container 就是容器类型（Container必须是用数组实现的容器，比如vector,deque等等，但不能用 <span class="hljs-built_in">list</span>。STL里面默认用的是vector），Functional 就是比较的方式。
+
+当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆。
+
+​```
+<span class="hljs-comment">//升序队列，小顶堆</span>
+<span class="hljs-number">2</span> priority_queue &lt;<span class="hljs-built_in">int</span>,vector&lt;<span class="hljs-built_in">int</span>&gt;,greater&lt;<span class="hljs-built_in">int</span>&gt; &gt; q;
+<span class="hljs-number">3</span> <span class="hljs-comment">//降序队列，大顶堆</span>
+<span class="hljs-number">4</span> priority_queue &lt;<span class="hljs-built_in">int</span>,vector&lt;<span class="hljs-built_in">int</span>&gt;,less&lt;<span class="hljs-built_in">int</span>&gt; &gt;q;
+<span class="hljs-number">5</span> 
+<span class="hljs-number">6</span> <span class="hljs-comment">//greater和less是std实现的两个仿函数（就是使一个类的使用看上去像一个函数。其实现就是类中实现一个operator()，这个类就有了类似函数的行为，就是一个仿函数类了）</span>
+​```
+</code></pre></div>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
                 
               </div>
               
@@ -447,9 +827,9 @@ mapStudent[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/14/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF%E8%B4%A8%E6%95%B0/">
+                      <a href="/2020/11/16/%E5%BF%AB%E8%AF%BB/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">快读</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -457,8 +837,8 @@ mapStudent[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/14/%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E8%B6%85%E6%97%B6/">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2020/10/23/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -626,7 +1006,7 @@ mapStudent[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "&nbsp;",
+        "STL总结&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
