@@ -17,7 +17,7 @@
   <meta name="description" content="����ѧϰ�ʼǵĲ���">
   <meta name="author" content="Alenk">
   <meta name="keywords" content="ѧϰ�ʼ�">
-  <title>求一个区间内最短的不相交区间的最大区间数 - AlenkWin</title>
+  <title>二分 - AlenkWin</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -141,8 +141,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-16 08:55" pubdate>
-        November 16, 2020 am
+      <time datetime="2020-11-18 22:29" pubdate>
+        November 18, 2020 pm
       </time>
     </span>
   
@@ -153,7 +153,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      877 字
+      287 字
     </span>
   
 
@@ -163,7 +163,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      3
        分钟
     </span>
   
@@ -193,101 +193,44 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">求一个区间内最短的不相交区间的最大区间数</h1>
+            <h1 style="display: none">二分</h1>
             
             <div class="markdown-body" id="post-body">
-              <p>这是典型的贪心问题。</p>
-<p>题目：</p>
-<p>（1）问题描述：给定x 轴上n 个闭区间。去掉尽可能少的闭区间，使剩下的闭区间都不相交。</p>
-<p>（2）编程任务：给定n 个闭区间，编程计算去掉的最少闭区间数。</p>
-<p>（3）数据输入：第一行是正整数n，表示闭区间数。接下来的n行中，每行有2 个整数，分别表示闭区间的2个端点。</p>
-<p>（4）结果输出:计算出的去掉的最少闭区间数。</p>
-<p>（5）输入示例</p>
-<p>3</p>
-<p>10 20</p>
-<p>10 15</p>
-<p>20 15</p>
-<p>（6）输出文件示例 　　2</p>
-<h4 id="这类题的解决思路："><a href="#这类题的解决思路：" class="headerlink" title="这类题的解决思路："></a>这类题的解决思路：</h4><p>我们需要的是不重叠的区间最多有多少个，那最好的办法就是对区间右端进行排序。因为一个区间结束的越早，后面才能选出越多的区间。</p>
-<p>上代码</p>
-<div class="hljs"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAXN=<span class="hljs-number">100</span>;
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span></span>
-<span class="hljs-class">&#123;</span>
-    <span class="hljs-keyword">int</span> l,r;
-&#125;a[MAXN];
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(node a,node b)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">return</span> a.r &lt; b.r;
+              <h3 id="一、二分的STL函数"><a href="#一、二分的STL函数" class="headerlink" title="一、二分的ＳＴＬ函数"></a>一、二分的ＳＴＬ函数</h3><p>binary_search　返回bool值，查找是否存在</p>
+<p>lower_bound　返回可插入的最小位置的迭代器</p>
+<p>ｅｇ．</p>
+<div class="hljs"><pre><code class="hljs angelscript">lower_bound（a，a+<span class="hljs-number">11</span>，　<span class="hljs-number">55</span>)
+／／ａ代表待查的起始位置，，a+<span class="hljs-number">11</span>代表待查的最后位置，<span class="hljs-number">55</span>是要插入的元素
+／／合起来说就是从ａ数组的a[<span class="hljs-number">0</span>]到a[<span class="hljs-number">10</span>]中插入<span class="hljs-number">55</span>的最小能插入的位置</code></pre></div>
+<p>upper_bound　返回可插入的最大位置的迭代器　，语法同上</p>
+<p>上面的lower_bound和upper_bound自己实现的代码如下：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> find_low(<span class="hljs-built_in">int</span> x)
+&#123;
+	<span class="hljs-built_in">int</span> mid, l = <span class="hljs-number">1</span>, r = n;
+	<span class="hljs-keyword">while</span>(l &lt;= r)
+	&#123;
+		mid = (l+r) &gt;&gt; <span class="hljs-number">1</span>;<span class="hljs-comment">//这里的意思是右移一位（移二进制），即除以二</span>
+		<span class="hljs-keyword">if</span>(a[mid] &lt; x) l = mid+<span class="hljs-number">1</span>;
+			<span class="hljs-keyword">else</span> r = mid<span class="hljs-number">-1</span>;
+	&#125;
+	<span class="hljs-keyword">return</span> l;
 &#125;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">int</span> n;
-    <span class="hljs-built_in">cin</span> &gt;&gt; n；
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)
-    &#123;
-        <span class="hljs-keyword">int</span> u,v;
-        <span class="hljs-built_in">cin</span> &gt;&gt; u &gt;&gt; v;
-        a[i].l = <span class="hljs-built_in">min</span>(u,v);
-        a[i].r = <span class="hljs-built_in">max</span>(u,v);
-    &#125;
-    sort(a, a+n, cmp);<span class="hljs-comment">//对区间右端进行排序</span>
-    <span class="hljs-keyword">int</span> ans=<span class="hljs-number">1</span>, tmp=<span class="hljs-number">0</span>;
-    <span class="hljs-comment">//下面为这种思路的主要部分：</span>
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; i++)
-        <span class="hljs-keyword">if</span>(a[i].l &gt;= tmp)&#123;
-            ans++;
-            tmp=a[i].r;
-        &#125;
-    <span class="hljs-built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre></div>
-
-<h3 id="难度up"><a href="#难度up" class="headerlink" title="难度up"></a><em>难度up</em></h3><h5 id="题目概要："><a href="#题目概要：" class="headerlink" title="题目概要："></a>题目概要：</h5><p>有好多个直的长条，一盘排排放好，给你长条的首尾坐标。 一道可以切开两个坐标之间的位置，用最少的刀数切开所有的长条。</p>
-<h5 id="输入描述："><a href="#输入描述：" class="headerlink" title="输入描述："></a>输入描述：</h5><p>第一行是长条数N(2 &lt;= N &lt;= 32000)。 第二行到n + 1行输入每一个长条的首坐标以及长条的长度。</p>
-<h5 id="输出描述："><a href="#输出描述：" class="headerlink" title="输出描述："></a>输出描述：</h5><p>一行表示最少用的长条数。</p>
-<p><em>贪心策略：</em></p>
-<p>为啥说这个切长条也是这种类型呢？</p>
-<p>因为只要区间有重复，表示这个区间一定可以在切其他区间的同时把这个区间切开！ 所以就变成了求最大的不相交区间数量。</p>
-<p>那这个怎么求呢？ 就是按照结束时间来排序。</p>
-<p>为啥按照结束时间来排呢？因为上一个越早结束，下一个开始的时间就越早，选择的空间就越大。</p>
-<p>如果有重复的也没有关系哦，比如1-3和2~3，选啥都无所谓，反正我选了，你就不能选呗。</p>
-<p>然后操作了：</p>
-<p>这个题目可以直接定义一个结构体，然后结构体内置排序。 这里我为了熟悉用pair，所以给pair写了一个排序函数.</p>
-<p>打代码：</p>
-<p>首先输入呗。初始化pair数组。 然后排序。 在判断计数，这里要保存上面的结束时间，因为要判断下一个能不能用嘛。</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAX = <span class="hljs-number">3e4</span> + <span class="hljs-number">2e3</span> + <span class="hljs-number">7</span>;
-
-
-<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; a[MAX];
-
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&amp; u, <span class="hljs-keyword">const</span> <span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&amp; v)</span> </span>&#123;
-    <span class="hljs-keyword">if</span> (u.second == v.second)
-		<span class="hljs-keyword">return</span> u.first &lt; v.first;
-    <span class="hljs-keyword">return</span> u.second &lt; v.second;
+<span class="hljs-built_in">int</span> find_up(<span class="hljs-built_in">int</span> x)
+&#123;
+	<span class="hljs-built_in">int</span> mid, l = <span class="hljs-number">1</span>, r = n;
+	<span class="hljs-keyword">while</span>(l &lt;= r)
+	&#123;
+		mid = (l+r) &gt;&gt; <span class="hljs-number">1</span>;
+		<span class="hljs-keyword">if</span>(a[mid] &lt;= x) l = mid+<span class="hljs-number">1</span>;
+			<span class="hljs-keyword">else</span> r = mid<span class="hljs-number">-1</span>;
+	&#125;
+	<span class="hljs-keyword">return</span> l;
 &#125;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> n;
-	<span class="hljs-built_in">cin</span> &gt;&gt; n;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;
-        <span class="hljs-keyword">int</span> len;
-		<span class="hljs-built_in">cin</span> &gt;&gt; a[i].first &gt;&gt; len;
-        a[i].second = a[i].first + len;
-    &#125;
-    sort(a + <span class="hljs-number">1</span>, a + <span class="hljs-number">1</span> + n, cmp);
-    <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>, en = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)
-        <span class="hljs-keyword">if</span> (en &lt;= a[i].first) &#123;
-            ans++;
-            en = a[i].second;
-        &#125;
-    <span class="hljs-built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre></div>
+｝</code></pre></div>
+
+<h4 id="二分答案＋检验"><a href="#二分答案＋检验" class="headerlink" title="二分答案＋检验"></a>二分答案＋检验</h4><p>对于难以直接确定解的问题，采取二分枚举＋检验的思想将求解类问题转换为检验类问题</p>
+<h4 id="解决最大值最小或者最小值最大的常见方法"><a href="#解决最大值最小或者最小值最大的常见方法" class="headerlink" title="解决最大值最小或者最小值最大的常见方法"></a>解决最大值最小或者最小值最大的常见方法</h4><p>二分和贪心</p>
+
             </div>
             <hr>
             <div>
@@ -310,18 +253,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/18/%E4%BA%8C%E5%88%86/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">二分</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/16/%E5%BF%AB%E8%AF%BB/">
-                        <span class="hidden-mobile">快读</span>
+                      <a href="/2020/11/16/%E6%B1%82%E4%B8%80%E4%B8%AA%E5%8C%BA%E9%97%B4%E5%86%85%E6%9C%80%E7%9F%AD%E7%9A%84%E4%B8%8D%E7%9B%B8%E4%BA%A4%E5%8C%BA%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8C%BA%E9%97%B4%E6%95%B0/">
+                        <span class="hidden-mobile">求一个区间内最短的不相交区间的最大区间数</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -489,7 +426,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "求一个区间内最短的不相交区间的最大区间数&nbsp;",
+        "二分&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
